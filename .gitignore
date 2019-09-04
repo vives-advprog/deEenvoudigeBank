@@ -1,0 +1,16 @@
+
+### Intellij ###
+
+# .idea folder
+.idea/
+
+# File-based project format
+*.iws
+*.iml
+
+# IntelliJ
+out/
+target/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
