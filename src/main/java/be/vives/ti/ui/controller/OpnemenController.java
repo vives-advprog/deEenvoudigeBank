@@ -78,7 +78,7 @@ public class OpnemenController  {
             this.checkAlleVelden();
 
             // be.vives.service doorvoeren in DB
-            rekeningService.opnemenRekening(rekening.getRekeningnummer().toString(),
+            rekeningService.opnemenRekening(rekening.getRekeningnummer().getRekeningnummer(),
                     new BigDecimal(tfBedrag.getText()));
 
             // terugkeren naar het hoofdscherm en klant selecteren
@@ -118,7 +118,7 @@ public class OpnemenController  {
     public void setData(Integer klantId, Rekening rek) {
         geselecteerdeKlant = klantId;
         rekening = rek;
-        tfRekeningnummer.setText(rek.getRekeningnummer().toString());
+        tfRekeningnummer.setText(rek.getRekeningnummer().getRekeningnummer());
         tfSaldo.setText(String.valueOf(rek.getSaldo()));
     }
 

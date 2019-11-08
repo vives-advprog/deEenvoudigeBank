@@ -144,7 +144,7 @@ public class RekeningService {
         checkAlleVeldenIngevuld(rekening);
 
         // bestaat er al een rekening met dit rekeningnummer?
-        if (zoekRekening(rekening.getRekeningnummer().toString()) != null) {
+        if (zoekRekening(rekening.getRekeningnummer().getRekeningnummer()) != null) {
             throw new ApplicationException(ApplicationExceptionType.REK_BESTAAT_AL.getMessage());
         }
 

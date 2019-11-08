@@ -305,7 +305,7 @@ public class RekeningDAO {
                     // Aangezien het niet doorgeven van een rekeningnummer op te lossen is door de gebruiker
                     // moet er een ApplicationException gegooid worden.
                     if (rekening.getRekeningnummer() != null) {
-                        stmt.setString(1, rekening.getRekeningnummer().toString());
+                        stmt.setString(1, rekening.getRekeningnummer().getRekeningnummer());
                     } else {
                         throw new ApplicationException(ApplicationExceptionType.REK_REKNUMMER_LEEG.getMessage());
                     }

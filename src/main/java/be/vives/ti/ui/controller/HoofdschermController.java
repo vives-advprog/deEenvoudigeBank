@@ -151,7 +151,7 @@ public class HoofdschermController {
         if (r != null) {
             try {
                 // rekening verwijderen in de DB
-                rekTrans.verwijderRekening(r.getRekeningnummer().toString());
+                rekTrans.verwijderRekening(r.getRekeningnummer().getRekeningnummer());
                 // rekening verwijderen in tabel (niet alle data moet opnieuw uit de DB gehaald worden!)
                 taRekeningen.getItems().remove(r);
             } catch (ApplicationException ae) {

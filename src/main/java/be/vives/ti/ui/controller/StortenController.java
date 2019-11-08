@@ -78,7 +78,7 @@ public class StortenController {
             this.checkAlleVelden();
 
             // be.vives.service doorvoeren in DB
-            rekeningService.stortenRekening(rekening.getRekeningnummer().toString(),
+            rekeningService.stortenRekening(rekening.getRekeningnummer().getRekeningnummer(),
                     new BigDecimal(tfBedrag.getText()));
 
             // terugkeren naar het hoofdscherm en gewijzigde klant selecteren
@@ -118,7 +118,7 @@ public class StortenController {
     public void setData(Integer KlantId, Rekening rek) {
         geselecteerdeKlant = KlantId;
         rekening = rek;
-        tfRekeningnummer.setText(rek.getRekeningnummer().toString());
+        tfRekeningnummer.setText(rek.getRekeningnummer().getRekeningnummer());
         tfSaldo.setText(String.valueOf(rek.getSaldo().setScale(2, RoundingMode.HALF_UP)));
     }
 }

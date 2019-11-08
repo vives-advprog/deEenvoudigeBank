@@ -77,16 +77,16 @@ public class RekeningDAOTest {
             rekeningDAO.toevoegenRekening(rek);
             // rek opnieuw ophalen
             Rekening ophaalRek = rekeningDAO.zoekRekening(
-                rek.getRekeningnummer().toString());
+                rek.getRekeningnummer().getRekeningnummer());
 
             // toegevoegde rek vergelijken met opgehaalde rek
-            assertThat(ophaalRek.getRekeningnummer().toString()).isEqualTo("BE24 1238 8888 8838");
+            assertThat(ophaalRek.getRekeningnummer().getRekeningnummer()).isEqualTo("BE24 1238 8888 8838");
             assertThat(ophaalRek.getSaldo()).isEqualTo(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP));
             assertThat(ophaalRek.getEigenaar()).isEqualTo(klant.getId());
             assertThat(ophaalRek.getStatus()).isEqualTo(RekeningStatus.OPEN);
         } finally {
             // rekening weer verwijderen
-            Removals.removeRekening(rek.getRekeningnummer().toString());
+            Removals.removeRekening(rek.getRekeningnummer().getRekeningnummer());
         }
     }
 
@@ -115,16 +115,16 @@ public class RekeningDAOTest {
             // rek toevoegen
             rekeningDAO.toevoegenRekening(rek);
             // rek opnieuw ophalen
-            Rekening ophaalRek = rekeningDAO.zoekRekening(rek.getRekeningnummer().toString());
+            Rekening ophaalRek = rekeningDAO.zoekRekening(rek.getRekeningnummer().getRekeningnummer());
 
             // toegevoegde rek vergelijken met opgehaalde rek
-            assertThat(ophaalRek.getRekeningnummer().toString()).isEqualTo("BE24 1238 8888 8838");
+            assertThat(ophaalRek.getRekeningnummer().getRekeningnummer()).isEqualTo("BE24 1238 8888 8838");
             assertThat(ophaalRek.getSaldo()).isEqualTo(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP));
             assertThat(ophaalRek.getEigenaar()).isEqualTo(klant.getId());
             assertThat(ophaalRek.getStatus()).isEqualTo(RekeningStatus.OPEN);
         } finally {
             // rekening weer verwijderen
-            Removals.removeRekening(rek.getRekeningnummer().toString());
+            Removals.removeRekening(rek.getRekeningnummer().getRekeningnummer());
         }
     }
 
@@ -154,16 +154,16 @@ public class RekeningDAOTest {
             // rek toevoegen
             rekeningDAO.toevoegenRekening(rek);
             // rek opnieuw ophalen
-            Rekening ophaalRek = rekeningDAO.zoekRekening(rek.getRekeningnummer().toString());
+            Rekening ophaalRek = rekeningDAO.zoekRekening(rek.getRekeningnummer().getRekeningnummer());
 
             // toegevoegde rek vergelijken met opgehaalde rek
-            assertThat(ophaalRek.getRekeningnummer().toString()).isEqualTo("BE24 1238 8888 8838");
+            assertThat(ophaalRek.getRekeningnummer().getRekeningnummer()).isEqualTo("BE24 1238 8888 8838");
             assertThat(ophaalRek.getSaldo()).isEqualTo(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP));
             assertThat(ophaalRek.getEigenaar()).isEqualTo(klant.getId());
             assertThat(ophaalRek.getStatus()).isEqualTo(RekeningStatus.OPEN);
         } finally {
             // rekening weer verwijderen
-            Removals.removeRekening(rek.getRekeningnummer().toString());
+            Removals.removeRekening(rek.getRekeningnummer().getRekeningnummer());
         }
     }
 
@@ -207,10 +207,10 @@ public class RekeningDAOTest {
             rekeningDAO.wijzigenSaldoRekening(reknr, new BigDecimal(20));
 
             // rek opnieuw ophalen
-            Rekening ophaalRek = rekeningDAO.zoekRekening(rek.getRekeningnummer().toString());
+            Rekening ophaalRek = rekeningDAO.zoekRekening(rek.getRekeningnummer().getRekeningnummer());
 
             // toegevoegde rek vergelijken met opgehaalde rek
-            assertThat(ophaalRek.getRekeningnummer().toString()).isEqualTo("BE24 1238 8888 8838");
+            assertThat(ophaalRek.getRekeningnummer().getRekeningnummer()).isEqualTo("BE24 1238 8888 8838");
             assertThat(ophaalRek.getSaldo()).isEqualTo(new BigDecimal(20).setScale(2, RoundingMode.HALF_UP));
             assertThat(ophaalRek.getEigenaar()).isEqualTo(klant.getId());
             assertThat(ophaalRek.getStatus()).isEqualTo(RekeningStatus.OPEN);
@@ -237,7 +237,7 @@ public class RekeningDAOTest {
             Rekening ophaalRek = rekeningDAO.zoekRekening("BE24 1238 8888 8838");
 
             // toegevoegde rek vergelijken met opgehaalde rek
-            assertThat(ophaalRek.getRekeningnummer().toString()).isEqualTo("BE24 1238 8888 8838");
+            assertThat(ophaalRek.getRekeningnummer().getRekeningnummer()).isEqualTo("BE24 1238 8888 8838");
             assertThat(ophaalRek.getSaldo()).isEqualTo(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP));
             assertThat(ophaalRek.getEigenaar()).isEqualTo(klant.getId());
             assertThat(ophaalRek.getStatus()).isEqualTo(RekeningStatus.GESLOTEN);
@@ -264,7 +264,7 @@ public class RekeningDAOTest {
             Rekening ophaalRek = rekeningDAO.zoekRekening("BE24 1238 8888 8838");
 
             // rekening is niet gesloten, want niet gevonden
-            assertThat(ophaalRek.getRekeningnummer().toString()).isEqualTo("BE24 1238 8888 8838");
+            assertThat(ophaalRek.getRekeningnummer().getRekeningnummer()).isEqualTo("BE24 1238 8888 8838");
             assertThat(ophaalRek.getSaldo()).isEqualTo(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP));
             assertThat(ophaalRek.getEigenaar()).isEqualTo(klant.getId());
             assertThat(ophaalRek.getStatus()).isEqualTo(RekeningStatus.OPEN);
@@ -291,7 +291,7 @@ public class RekeningDAOTest {
             Rekening ophaalRek = rekeningDAO.zoekRekening("BE24 1238 8888 8838");
 
             // rekening is niet gesloten, want niet gevonden
-            assertThat(ophaalRek.getRekeningnummer().toString()).isEqualTo("BE24 1238 8888 8838");
+            assertThat(ophaalRek.getRekeningnummer().getRekeningnummer()).isEqualTo("BE24 1238 8888 8838");
             assertThat(ophaalRek.getSaldo()).isEqualTo(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP));
             assertThat(ophaalRek.getEigenaar()).isEqualTo(klant.getId());
             assertThat(ophaalRek.getStatus()).isEqualTo(RekeningStatus.OPEN);
@@ -350,8 +350,8 @@ public class RekeningDAOTest {
         rekeningDAO.toevoegenRekening(rek5);
 
         // rekeningen 3 en 5 afsluiten
-        rekeningDAO.verwijderRekening(rek3.getRekeningnummer().toString());
-        rekeningDAO.verwijderRekening(rek5.getRekeningnummer().toString());
+        rekeningDAO.verwijderRekening(rek3.getRekeningnummer().getRekeningnummer());
+        rekeningDAO.verwijderRekening(rek5.getRekeningnummer().getRekeningnummer());
 
         ArrayList<Rekening> rekeningen = new ArrayList<>();
         rekeningen.add(rek1);
@@ -494,7 +494,7 @@ public class RekeningDAOTest {
             Rekening ophaalRek = rekeningDAO.zoekRekening("BE74 9871 1111 1107");
 
             // rek vergelijken met gevonden rek
-            assertThat(ophaalRek.getRekeningnummer().toString()).isEqualTo("BE74 9871 1111 1107");
+            assertThat(ophaalRek.getRekeningnummer().getRekeningnummer()).isEqualTo("BE74 9871 1111 1107");
             assertThat(ophaalRek.getSaldo()).isEqualTo(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP));
             assertThat(ophaalRek.getEigenaar()).isEqualTo(klant.getId());
             assertThat(ophaalRek.getStatus()).isEqualTo(RekeningStatus.OPEN);
