@@ -44,12 +44,12 @@ public class KlantService {
 
         // id mag niet ingevuld zijn
         if (klant.getId() != null) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_IDWORDTGEGENEREERD.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_ID_WORDT_GEGENEREERD.getMessage());
         }
 
         // bestaat klant?
         if (bestaatKlant(klant)) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAATAL.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAAT_AL.getMessage());
         }
 
         //toevoegen
@@ -81,7 +81,7 @@ public class KlantService {
         // heeft de klant openstaande rekeningen?
         int aantal = rekeningService.zoekAantalOpenRekeningen(id);
         if (aantal > 0) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_HEEFTNOGREKENINGEN.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_HEEFT_NOG_REKENINGEN.getMessage());
         }
 
         // verwijderen
@@ -123,7 +123,7 @@ public class KlantService {
         // voornaam, naam, adres
 
         if (bestaatKlant(klant)) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAATAL.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAAT_AL.getMessage());
         }
 
         // klant met id van originele klant wijzigen
@@ -156,7 +156,7 @@ public class KlantService {
         }
         // de status mag niet opgegeven worden. Dit is automatisch INGESCHREVEN.
         if (klant.getStatus() != null) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_MOETINGESCHREVENZIJN.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_MOET_INGESCHREVEN_ZIJN.getMessage());
         }
     }
 
