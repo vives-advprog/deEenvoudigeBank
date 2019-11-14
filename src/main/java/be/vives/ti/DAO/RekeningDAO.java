@@ -60,7 +60,7 @@ public class RekeningDAO {
                         return returnRekening;
                     } catch (ApplicationException ae) {
                         //wanneer bij het zoeken in de DB de constructor van rekeningnummer een exception gooit,
-                        // dan zat er een foutief rekeningnummer in de DAO. De gebruiker kan dit onmogelijk
+                        // dan zat er een foutief rekeningnummer in de DB. De gebruiker kan dit onmogelijk
                         // oplossen, dus DBException
                         throw new DBException("Databasefout: fout rekeningnummer gevonden.");
                     } catch (SQLException sqlEx) {
