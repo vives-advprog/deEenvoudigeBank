@@ -44,12 +44,12 @@ public class KlantService {
 
         // id mag niet ingevuld zijn
         if (klant.getId() != null) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_IDWORDTGEGENEREERD.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_ID_WORDT_GEGENEREERD.getMessage());
         }
 
         // bestaat klant?
         if (bestaatKlant(klant)) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAATAL.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAAT_AL.getMessage());
         }
 
         //toevoegen
@@ -70,7 +70,7 @@ public class KlantService {
         // bestaat de klant?
         Klant kb = zoekKlant(id);
         if (kb == null) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAATNIET.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAAT_NIET.getMessage());
         }
 
         // is de klant nog ingeschreven?
@@ -81,7 +81,7 @@ public class KlantService {
         // heeft de klant openstaande rekeningen?
         int aantal = rekeningService.zoekAantalOpenRekeningen(id);
         if (aantal > 0) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_HEEFTNOGREKENINGEN.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_HEEFT_NOG_REKENINGEN.getMessage());
         }
 
         // verwijderen
@@ -111,7 +111,7 @@ public class KlantService {
         // zit de klant die gewijzigd moet worden in de DB?
         Klant teWijzigenKlant = zoekKlant(klant.getId());
         if (teWijzigenKlant == null) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAATNIET.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAAT_NIET.getMessage());
         }
 
         // is originele klant nog ingeschreven?
@@ -123,7 +123,7 @@ public class KlantService {
         // voornaam, naam, adres
 
         if (bestaatKlant(klant)) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAATAL.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAAT_AL.getMessage());
         }
 
         // klant met id van originele klant wijzigen
@@ -156,7 +156,7 @@ public class KlantService {
         }
         // de status mag niet opgegeven worden. Dit is automatisch INGESCHREVEN.
         if (klant.getStatus() != null) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_MOETINGESCHREVENZIJN.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_MOET_INGESCHREVEN_ZIJN.getMessage());
         }
     }
 
@@ -215,7 +215,7 @@ public class KlantService {
         // bestaat klant?
         Klant klant = zoekKlant(id);
         if (klant == null) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAATNIET.getMessage());
+            throw new ApplicationException(ApplicationExceptionType.KLANT_BESTAAT_NIET.getMessage());
         }
 
         // is klant nog ingeschreven?

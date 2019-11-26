@@ -5,5 +5,6 @@ Dit is de samplecode die hoort bij de cursus **"Databanken in Java"**. In de cur
 In de map `/database` vind je volgende zaken:
 - SQL script met create table statements om de database te voorzien van de nodige tabellen
 - Handleiding - MySQL database aanspreken vanuit Intellij
+- Handleiding - MySQL database via MAMP voor MAC-gebruikers
 
 

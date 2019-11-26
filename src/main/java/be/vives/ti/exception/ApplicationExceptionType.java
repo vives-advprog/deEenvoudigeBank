@@ -15,12 +15,12 @@ public enum ApplicationExceptionType {
     KLANT_GEMEENTE_LEEG("Er werd geen gemeente opgegeven."),
 
     // ongeldige operaties klant
-    KLANT_IDWORDTGEGENEREERD("De klant krijgt automatisch een id en mag dus niet opgegeven worden."),
-    KLANT_BESTAATAL("Er bestaat al een klant met deze naam, voornaam en adres."),
-    KLANT_BESTAATNIET("De klant werd niet gevonden."),
+    KLANT_ID_WORDT_GEGENEREERD("De klant krijgt automatisch een id en mag dus niet opgegeven worden."),
+    KLANT_BESTAAT_AL("Er bestaat al een klant met deze naam, voornaam en adres."),
+    KLANT_BESTAAT_NIET("De klant werd niet gevonden."),
     KLANT_UITGESCHREVEN("De klant is uitgeschreven."),
-    KLANT_MOETINGESCHREVENZIJN("De klant krijgt automatisch de status INGESCHREVEN."),
-    KLANT_HEEFTNOGREKENINGEN("De klant heeft nog openstaande rekeningen."),
+    KLANT_MOET_INGESCHREVEN_ZIJN("De klant krijgt automatisch de status INGESCHREVEN."),
+    KLANT_HEEFT_NOG_REKENINGEN("De klant heeft nog openstaande rekeningen."),
 
     // ongeldige eigenschappen rekening
     REK_NULL("Er werd geen rekening opgegeven."),

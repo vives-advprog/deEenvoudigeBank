@@ -108,7 +108,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.toevoegenKlant(klant);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_MOETINGESCHREVENZIJN.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_MOET_INGESCHREVEN_ZIJN.getMessage());
 
         verify(klantDAO, never()).toevoegenKlant(klant);
     }
@@ -119,7 +119,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.toevoegenKlant(klant);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_MOETINGESCHREVENZIJN.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_MOET_INGESCHREVEN_ZIJN.getMessage());
 
         verify(klantDAO, never()).toevoegenKlant(klant);
     }
@@ -187,7 +187,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.toevoegenKlant(klant);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_IDWORDTGEGENEREERD.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_ID_WORDT_GEGENEREERD.getMessage());
 
         verify(klantDAO, never()).toevoegenKlant(klant);
     }
@@ -200,7 +200,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.toevoegenKlant(klant);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAATAL.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAAT_AL.getMessage());
 
         verify(klantDAO, never()).toevoegenKlant(klant);
     }
@@ -245,7 +245,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.verwijderKlant(klantId);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAATNIET.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAAT_NIET.getMessage());
 
         verify(klantDAO, never()).verwijderKlant(klantId);
 
@@ -277,7 +277,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.verwijderKlant(klantId);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_HEEFTNOGREKENINGEN.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_HEEFT_NOG_REKENINGEN.getMessage());
 
         verify(klantDAO, never()).verwijderKlant(klantId);
     }
@@ -352,7 +352,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.wijzigenKlant(klant);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_MOETINGESCHREVENZIJN.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_MOET_INGESCHREVEN_ZIJN.getMessage());
 
         verify(klantDAO, never()).wijzigenKlant(klant);
     }
@@ -418,7 +418,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.wijzigenKlant(klant);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_MOETINGESCHREVENZIJN.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_MOET_INGESCHREVEN_ZIJN.getMessage());
 
         verify(klantDAO, never()).wijzigenKlant(klant);
     }
@@ -449,7 +449,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.wijzigenKlant(klant);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAATNIET.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAAT_NIET.getMessage());
 
         verify(klantDAO, never()).wijzigenKlant(klant);
     }
@@ -469,7 +469,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.wijzigenKlant(klant);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAATAL.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAAT_AL.getMessage());
 
         verify(klantDAO, never()).wijzigenKlant(klant);
     }
@@ -557,7 +557,7 @@ public class KlantServiceTest {
 
         assertThatThrownBy(() -> {
             klantService.valideerKlant(id);
-        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAATNIET.getMessage());
+        }).isInstanceOf(ApplicationException.class).hasMessage(ApplicationExceptionType.KLANT_BESTAAT_NIET.getMessage());
     }
 
     @Test
