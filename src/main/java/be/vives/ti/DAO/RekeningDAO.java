@@ -174,7 +174,7 @@ public class RekeningDAO {
                                     + " where status = ? "
                                     + "   and eigenaar = ? "
                                     + " group by eigenaar")) {
-                stmt.setString(1, RekeningStatus.OPEN.name());
+                stmt.setString(1, RekeningStatus.OPEN.toString());
                 stmt.setInt(2, eigenaar);
                 stmt.execute();
                 // result opvragen (en automatisch sluiten)
@@ -265,7 +265,7 @@ public class RekeningDAO {
                                         + " set status = ? "
                                         + " where rekeningnummer = ?")) {
 
-                    stmt.setString(1, RekeningStatus.GESLOTEN.name());
+                    stmt.setString(1, RekeningStatus.GESLOTEN.toString());
                     stmt.setString(2, rekeningnummer);
                     stmt.execute();
                 } catch (SQLException sqlEx) {
@@ -311,7 +311,7 @@ public class RekeningDAO {
                     }
                     // als het saldo null is, zal setBigDecimal dit opvangen. Er is dus geen controle nodig
                     stmt.setBigDecimal(2, rekening.getSaldo());
-                    stmt.setString(3, RekeningStatus.OPEN.name());
+                    stmt.setString(3, RekeningStatus.OPEN.toString());
                     stmt.setInt(4, rekening.getEigenaar());
                     stmt.execute();
 

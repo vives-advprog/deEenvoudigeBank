@@ -264,7 +264,7 @@ public class KlantDAO {
                         "update klant "
                                 + " set status = ? "
                                 + " where id = ?")) {
-                    stmt.setString(1, KlantStatus.UITGESCHREVEN.name());
+                    stmt.setString(1, KlantStatus.UITGESCHREVEN.toString());
                     stmt.setInt(2, id);
                     stmt.execute();
                 } catch (SQLException sqlEx) {
@@ -308,7 +308,7 @@ public class KlantDAO {
                     stmt.setString(3, klant.getAdres());
                     stmt.setString(4, klant.getPostcode());
                     stmt.setString(5, klant.getGemeente());
-                    stmt.setString(6, KlantStatus.INGESCHREVEN.name());
+                    stmt.setString(6, KlantStatus.INGESCHREVEN.toString());
                     stmt.execute();
 
                     ResultSet generatedKeys = stmt.getGeneratedKeys();
