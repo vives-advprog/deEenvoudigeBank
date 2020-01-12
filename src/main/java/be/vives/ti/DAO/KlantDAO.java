@@ -158,7 +158,7 @@ public class KlantDAO {
                             + " where status = ? "
                             + " order by naam"
                             + "        , voornaam")) {
-                    stmt.setString(1, klantStatus.name());
+                    stmt.setString(1, klantStatus.toString());
                     stmt.execute();
                     // result opvragen (en automatisch sluiten)
                     try (ResultSet r = stmt.getResultSet()) {

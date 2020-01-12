@@ -101,7 +101,7 @@ public class RekeningDAO {
                             + " from rekening "
                             + " where status = ? "
                             + "   and eigenaar = ?")) {
-                    stmt.setString(1, rekeningStatus.name());
+                    stmt.setString(1, rekeningStatus.toString());
                     stmt.setInt(2, eigenaar);
                     stmt.execute();
                     // result opvragen (en automatisch sluiten)
