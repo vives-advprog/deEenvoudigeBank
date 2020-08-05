@@ -204,7 +204,7 @@ public class RekeningDAO {
      * Geeft alle rekeningen van een bepaalde klant terug.
      *
      * @param eigenaar de eigenaar van de rekeningen die gezocht worden
-     * @return lijst van alle rekeningen van een bepaalde klant
+     * @return lijst van alle rekeningen van een bepaalde klant. Lege lijst indien geen rekeningen gevonden
      * @throws DBException Exception die duidt op een verkeerde
      *                     installatie van de DAO of een fout in de query.
      */
