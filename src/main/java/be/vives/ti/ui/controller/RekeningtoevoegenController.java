@@ -53,11 +53,6 @@ public class RekeningtoevoegenController {
     private void opslaanRekening(ActionEvent evt) {
 
         try {
-            // controleren of er een rekeningnummer werd ingevuld
-            checkAlleVeldenIngevuld();
-            // controleren of de rekening geldig is
-            rekeningGeldig();
-
             // rekening toevoegen in DB
             Rekening rekening = new Rekening();
             rekening.setRekeningnummer(new Rekeningnummer(tfRekeningnummer.getText()));
@@ -87,23 +82,8 @@ public class RekeningtoevoegenController {
         mainApp.laadHoofdscherm(geselecteerdeKlant);
     }
 
-    /**
-     * Controleren of alle velden ingevuld zijn. Indien niet, dan wordt
-     * er een overeenkomstige ApplicationException gegooid.
-     */
-    private void checkAlleVeldenIngevuld() throws ApplicationException {
-        if (tfRekeningnummer.getText().equalsIgnoreCase("")) {
-            throw new ApplicationException(ApplicationExceptionType.REK_REKNUMMER_LEEG.getMessage());
-        }
-    }
 
-    /**
-     * Controleren of Rekeningnummer geldig is. Indien niet, dan wordt
-     * er een overeenkomstige ApplicationException gegooid.
-     */
-    private void rekeningGeldig() throws ApplicationException {
-        Rekeningnummer r = new Rekeningnummer(tfRekeningnummer.getText());
-    }
+
 
     /**
      * Specifieke data voor het scherm instellen

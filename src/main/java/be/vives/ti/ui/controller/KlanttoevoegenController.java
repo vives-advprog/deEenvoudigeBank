@@ -71,9 +71,6 @@ public class KlanttoevoegenController {
     @FXML
     private void opslaanKlant(ActionEvent evt) {
         try {
-            // controleren of alle velden ingevuld zijn
-            this.checkAlleVeldenIngevuld();
-
             // toevoegen in DB
             Klant klant = new Klant();
             klant.setNaam(tfNaam.getText());
@@ -90,28 +87,6 @@ public class KlanttoevoegenController {
             laErrorMessage.setText(ae.getMessage());
         } catch (DBException ae) {
             laErrorMessage.setText("onherstelbare fout: " + ae.getMessage());
-        }
-    }
-
-    /**
-     * Controleren of alle velden ingevuld zijn. Indien niet, dan wordt er een
-     * overeenkomstige ApplicationException gegooid.
-     */
-    private void checkAlleVeldenIngevuld() throws ApplicationException {
-        if (StringUtils.isBlank(tfNaam.getText())) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_NAAM_LEEG.getMessage());
-        }
-        if (StringUtils.isBlank(tfVoornaam.getText())) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_VOORNAAM_LEEG.getMessage());
-        }
-        if (StringUtils.isBlank(tfAdres.getText())) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_ADRES_LEEG.getMessage());
-        }
-        if (StringUtils.isBlank(tfPostcode.getText())) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_POSTCODE_LEEG.getMessage());
-        }
-        if (StringUtils.isBlank(tfGemeente.getText())) {
-            throw new ApplicationException(ApplicationExceptionType.KLANT_GEMEENTE_LEEG.getMessage());
         }
     }
 

@@ -75,7 +75,7 @@ public class StortenController {
 
         try {
             // controleren of alle velden ingevuld zijn
-            this.checkAlleVelden();
+            this.checkBedragIngevuld();
 
             // be.vives.service doorvoeren in DB
             rekeningService.stortenRekening(rekening.getRekeningnummer().getRekeningnummer(),
@@ -96,10 +96,7 @@ public class StortenController {
      * Controleren of alle velden correct ingevuld zijn. Indien niet, dan wordt
      * er een overeenkomstige ApplicationException gegooid.
      */
-    private void checkAlleVelden() throws ApplicationException {
-        if (tfBedrag.getText().equals("")) {
-            throw new ApplicationException(ApplicationExceptionType.REK_BEDRAG_LEEG.getMessage());
-        }
+    private void checkBedragIngevuld() throws ApplicationException {
         try {
             BigDecimal bedrag = new BigDecimal(tfBedrag.getText());
         } catch (NumberFormatException ne) {
